@@ -1,18 +1,21 @@
 import { NavLink } from 'react-router-dom';
 
-import Nav from 'react-bootstrap/Nav';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 function ContactList({ contacts }) {
   return (
-    <Nav variant="pills" as="ul" className="flex-column">
+    <ListGroup variant="flush" as="ul">
       {contacts.map((contact) => (
-        <Nav.Item key={contact.id} as="li">
-          <Nav.Link to={`/contacts/${contact.id}`} as={NavLink}>
-            {contact.name || 'No name'}
-          </Nav.Link>
-        </Nav.Item>
+        <ListGroup.Item
+          key={contact.id}
+          action
+          to={`/contacts/${contact.id}`}
+          as={NavLink}
+        >
+          {contact.name || 'No name'}
+        </ListGroup.Item>
       ))}
-    </Nav>
+    </ListGroup>
   );
 }
 

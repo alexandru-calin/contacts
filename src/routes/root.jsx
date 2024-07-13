@@ -11,11 +11,11 @@ function Root() {
   const contacts = useLoaderData();
 
   return (
-    <Container fluid="md">
+    <Container fluid="md" className="mt-4">
       <Row>
-        <Col sm="4">
+        <Col sm="3" className="mb-4 mb-sm-0">
           <Form method="post">
-            <Button type="submit" variant="success">
+            <Button type="submit" variant="success" className="mb-4">
               New
             </Button>
           </Form>
@@ -25,7 +25,7 @@ function Root() {
             <p>No contacts</p>
           )}
         </Col>
-        <Col>
+        <Col sm="6" md="4">
           <Outlet />
         </Col>
       </Row>
