@@ -7,4 +7,11 @@ const getContacts = async function () {
   return contacts;
 };
 
-export { getContacts };
+const getContact = async function (id) {
+  const contacts = await localforage.getItem('contacts');
+  const contact = contacts.find((contact) => contact.id === id);
+
+  return contact;
+};
+
+export { getContacts, getContact };
