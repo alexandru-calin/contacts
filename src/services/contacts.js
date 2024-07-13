@@ -23,4 +23,13 @@ const createContact = async function () {
   return contact;
 };
 
-export { getContacts, getContact, createContact };
+const updateContact = async function (id, updates) {
+  const contacts = await getContacts();
+  const contact = contacts.find((contact) => contact.id === id);
+  Object.assign(contact, updates);
+  await localforage.setItem('contacts', contacts);
+
+  return contact;
+};
+
+export { getContacts, getContact, createContact, updateContact };
