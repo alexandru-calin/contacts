@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     element: <Root />,
     action: async () => {
       const contact = await createContact();
-      return contact;
+      return redirect(`/contacts/${contact.id}/edit`);
     },
     loader: async () => {
       const contacts = await getContacts();
