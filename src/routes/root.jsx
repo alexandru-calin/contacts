@@ -1,8 +1,9 @@
-import { Outlet, useLoaderData } from 'react-router-dom';
+import { Form, Outlet, useLoaderData } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
 import ContactList from '../components/ContactList';
 
@@ -13,6 +14,11 @@ function Root() {
     <Container fluid="md">
       <Row>
         <Col sm="4">
+          <Form method="post">
+            <Button type="submit" variant="success">
+              New
+            </Button>
+          </Form>
           {contacts.length ? (
             <ContactList contacts={contacts} />
           ) : (

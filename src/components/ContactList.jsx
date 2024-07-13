@@ -8,7 +8,7 @@ function ContactList({ contacts }) {
       {contacts.map((contact) => (
         <Nav.Item key={contact.id} as="li">
           <Nav.Link to={`/contacts/${contact.id}`} as={NavLink}>
-            {contact.name}
+            {contact.name || 'No name'}
           </Nav.Link>
         </Nav.Item>
       ))}

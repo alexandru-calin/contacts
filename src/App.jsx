@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import { getContact, getContacts } from './services/contacts';
+import { createContact, getContact, getContacts } from './services/contacts';
 
 import Root from './routes/root';
 import Contact from './routes/contact';
@@ -9,6 +9,10 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
+    action: async () => {
+      const contact = await createContact();
+      return contact;
+    },
     loader: async () => {
       const contacts = await getContacts();
       return contacts;
