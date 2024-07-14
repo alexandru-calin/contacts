@@ -29,7 +29,12 @@ const updateContact = async function (id, updates) {
   Object.assign(contact, updates);
   await localforage.setItem('contacts', contacts);
 
+  await fakeNetwork();
   return contact;
+};
+
+const fakeNetwork = async function () {
+  return new Promise((resolve) => setTimeout(resolve, Math.random() * 1000));
 };
 
 export { getContacts, getContact, createContact, updateContact };
