@@ -1,12 +1,14 @@
-import { Form, useLoaderData } from 'react-router-dom';
+import { Form, useLoaderData, useNavigation } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
 import FormGroup from 'react-bootstrap/FormGroup';
 import FormLabel from 'react-bootstrap/FormLabel';
 import FormControl from 'react-bootstrap/FormControl';
+import Spinner from 'react-bootstrap/Spinner';
 
 function EditContact() {
   const contact = useLoaderData();
+  const navigation = useNavigation();
 
   return (
     <Form method="post">
@@ -23,8 +25,25 @@ function EditContact() {
           rows="3"
         />
       </FormGroup>
-      <Button type="submit" variant="success">
-        Save
+      <Button
+        type="submit"
+        variant="success"
+        disabled={navigation.state === 'submitting'}
+        className="w-100"
+      >
+        {navigation.state === 'submitting' ? (
+          <>
+            <Spinner
+              animation="border"
+              role="status"
+              size="sm"
+              aria-hidden="true"
+              as="span"
+            />
+          </>
+        ) : (
+          'Save'
+        )}
       </Button>
     </Form>
   );
