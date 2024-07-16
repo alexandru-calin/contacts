@@ -11,7 +11,7 @@ function Contact() {
   const navigation = useNavigation();
 
   return (
-    <Card>
+    <Card className="bg-dark-subtle">
       <Card.Body>
         <Stack direction="horizontal" gap="3">
           <Image
@@ -21,7 +21,9 @@ function Contact() {
             }
             alt={`${contact.name}'s profile picture`}
             width="64"
+            height="64"
             roundedCircle
+            className="object-fit-cover"
           />
           <Card.Title as="h3">{contact.name}</Card.Title>
         </Stack>

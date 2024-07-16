@@ -1,5 +1,5 @@
 function Index() {
-  return <p className="mx-auto">No contact selected.</p>;
+  return <p className="text-center">No contact selected.</p>;
 }
 
 export default Index;

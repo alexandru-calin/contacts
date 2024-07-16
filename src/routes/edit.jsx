@@ -18,7 +18,10 @@ function EditContact() {
   const navigate = useNavigate();
 
   return (
-    <Form method="post">
+    <Form
+      method="post"
+      className="bg-dark-subtle p-4 rounded border border-dark-subtle"
+    >
       <FormGroup controlId="name" className="mb-2">
         <FormLabel>Name</FormLabel>
         <FormControl defaultValue={contact?.name} name="name" type="text" />
