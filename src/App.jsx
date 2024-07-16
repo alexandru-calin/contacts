@@ -13,6 +13,7 @@ import {
 } from './services/contacts';
 
 import Root from './routes/root';
+import Index from './routes/index';
 import Contact from './routes/contact';
 import EditContact from './routes/edit';
 
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
       return contacts;
     },
     children: [
+      { index: true, element: <Index /> },
       {
         path: '/contacts/:id',
         element: <Contact />,
