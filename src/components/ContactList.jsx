@@ -4,13 +4,14 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 function ContactList({ contacts }) {
   return (
-    <ListGroup variant="flush" as="ul">
+    <ListGroup as="ul">
       {contacts.map((contact) => (
         <ListGroup.Item
           key={contact.id}
           action
           to={`/contacts/${contact.id}`}
           as={NavLink}
+          variant="dark"
         >
           {contact.name || 'No name'}
         </ListGroup.Item>

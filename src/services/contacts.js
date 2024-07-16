@@ -33,8 +33,18 @@ const updateContact = async function (id, updates) {
   return contact;
 };
 
+const deleteContact = async function (id) {
+  const contacts = await getContacts();
+  await localforage.setItem(
+    'contacts',
+    contacts.filter((contact) => contact.id !== id),
+  );
+
+  await fakeNetwork();
+};
+
 const fakeNetwork = async function () {
   return new Promise((resolve) => setTimeout(resolve, Math.random() * 1000));
 };
 
-export { getContacts, getContact, createContact, updateContact };
+export { getContacts, getContact, createContact, updateContact, deleteContact };

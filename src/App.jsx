@@ -6,6 +6,7 @@ import {
 
 import {
   createContact,
+  deleteContact,
   getContact,
   getContacts,
   updateContact,
@@ -48,6 +49,13 @@ const router = createBrowserRouter([
         loader: async ({ params }) => {
           const contact = await getContact(params.id);
           return contact;
+        },
+      },
+      {
+        path: '/contacts/:id/delete',
+        action: async ({ params }) => {
+          await deleteContact(params.id);
+          return redirect('/');
         },
       },
     ],
