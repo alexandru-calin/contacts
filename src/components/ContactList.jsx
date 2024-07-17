@@ -13,7 +13,8 @@ function ContactList({ contacts }) {
           as={NavLink}
           variant="dark"
         >
-          {contact.name || 'No name'}
+          {contact.name || 'No name'}{' '}
+          {contact.favorite && <span className="ms-auto">★</span>}
         </ListGroup.Item>
       ))}
     </ListGroup>

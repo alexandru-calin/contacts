@@ -1,4 +1,9 @@
-import { Form, useLoaderData, useNavigation } from 'react-router-dom';
+import {
+  Form,
+  useLoaderData,
+  useNavigation,
+  useFetcher,
+} from 'react-router-dom';
 
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -7,8 +12,13 @@ import Stack from 'react-bootstrap/Stack';
 import Spinner from 'react-bootstrap/Spinner';
 
 function Contact() {
-  const contact = useLoaderData();
   const navigation = useNavigation();
+  const fetcher = useFetcher();
+
+  const contact = useLoaderData();
+  const favorite = fetcher.formData
+    ? fetcher.formData.get('favorite') === 'true'
+    : contact.favorite;
 
   return (
     <Card className="bg-dark-subtle">
@@ -26,6 +36,16 @@ function Contact() {
             className="object-fit-cover"
           />
           <Card.Title as="h3">{contact.name}</Card.Title>
+          <fetcher.Form method="post">
+            <Button
+              type="submit"
+              name="favorite"
+              value={favorite ? 'false' : 'true'}
+              variant="dark"
+            >
+              {favorite ? '★' : '☆'}
+            </Button>
+          </fetcher.Form>
         </Stack>
         <Card.Text className="mt-2 text-muted">{contact.description}</Card.Text>
         <Stack direction="horizontal" gap="2" className="justify-content-end">

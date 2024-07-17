@@ -38,6 +38,12 @@ const router = createBrowserRouter([
           const contact = await getContact(params.id);
           return contact;
         },
+        action: async ({ request, params }) => {
+          const formData = await request.formData();
+          return updateContact(params.id, {
+            favorite: formData.get('favorite') === 'true',
+          });
+        },
       },
       {
         path: '/contacts/:id/edit',
