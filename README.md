@@ -21,14 +21,14 @@ I built this to learn the main concepts of React Router.
 1. Clone this repository
 
 ```
-$ git clone https://github.com/alexandru-calin/contacts.git
+git clone https://github.com/alexandru-calin/contacts.git
 ```
 
 2. Install the dependencies in the application folder
 
 ```
-$ cd contacts
-$ npm install
+cd contacts
+npm install
 ```
 
 ## Usage
